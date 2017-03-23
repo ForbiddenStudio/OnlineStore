@@ -1,0 +1,17 @@
+﻿@model OnlineStoreDomain.ProductEntity
+
+
+        <!-- Это для вставки картинки
+        <div class="col-lg-6">
+            <img src="~/Images/Lim.jpg"/>
+        </div>-->
+        <div class="well">
+            <h3>
+                <strong>@Model.Name</strong>
+                <span class="pull-right label label-primary">@Model.Price.ToString("# руб")</span>
+            </h3>
+            <span class="lead">Объем: @Model.Volume л</span>
+        </div>
+
+<div class="col-lg-1">
+</div>

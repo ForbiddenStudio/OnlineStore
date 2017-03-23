@@ -1,0 +1,27 @@
+﻿@using OnlineStore.HtmlHelpers
+@using OnlineStoreDomain
+@model OnlineStore.Models.ProductListModel
+
+@{
+    ViewBag.Title = "Товары";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row panel">
+    <div id="categories" class="col-xs-3">
+        @Html.Action("Menu", "Navigation")
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+            @foreach (var p in @Model.Product)
+            {
+                @Html.Partial("ProductSummary", p)
+            }
+        </div>
+    </div>
+</div>
+<div>
+   @Html.PageLinks(Model.PagingInfo, x => Url.Action("List",
+        new { page = x, category = Model.CurrentCategory }))
+</div>
