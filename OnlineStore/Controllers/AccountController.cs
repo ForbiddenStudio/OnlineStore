@@ -228,8 +228,8 @@ namespace OnlineStore.Controllers
         {
             return View();
         }
-
-        //
+       // asdfadf
+        //asdfasdfa
         // GET: /Account/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
