@@ -13,6 +13,7 @@ namespace OnlineStoreRepository
         // 
         // Если требуется выбрать другую базу данных или поставщик базы данных, измените строку подключения "Store" 
         // в файле конфигурации приложения.
+
         static Store()
         {
             Database.SetInitializer<Store>(new StoreDbInitializer());
