@@ -8,6 +8,7 @@ using OnlineStoreRepository;
 
 namespace OnlineStore.Controllers
 {
+    [Authorize(Roles = "Administrators")]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -17,6 +18,7 @@ namespace OnlineStore.Controllers
         {
             _repository = repository;
         }
+        
         public ViewResult Index()
         {
             return View(_repository.GetAll().ToArray());

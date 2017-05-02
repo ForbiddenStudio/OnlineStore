@@ -175,12 +175,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\AppRoleManager.cs" />
     <Compile Include="App\AppUserManager.cs" />
     <Compile Include="App\CustomPasswordValidator.cs" />
     <Compile Include="App\CustomUserValidator.cs" />
-    <Compile Include="Migrations\201702220333056_url.cs" />
-    <Compile Include="Migrations\201702220333056_url.Designer.cs">
-      <DependentUpon>201702220333056_url.cs</DependentUpon>
+    <Compile Include="Migrations\201705011812145_url.cs" />
+    <Compile Include="Migrations\201705011812145_url.Designer.cs">
+      <DependentUpon>201705011812145_url.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProductRepository.cs" />
@@ -200,8 +201,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702220333056_url.resx">
-      <DependentUpon>201702220333056_url.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705011812145_url.resx">
+      <DependentUpon>201705011812145_url.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

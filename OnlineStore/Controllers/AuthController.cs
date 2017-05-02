@@ -12,8 +12,10 @@ using OnlineStoreRepository.App;
 
 namespace OnlineStore.Controllers
 {
+    [Authorize(Roles = "Administrators")]
     public class AuthController : Controller
     {
+       
         public ActionResult Index()
         {
             return View(UserManager.Users);

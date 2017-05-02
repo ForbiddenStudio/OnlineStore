@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppRole.cs" />
     <Compile Include="AppUser.cs" />
     <Compile Include="CartEntity.cs" />
     <Compile Include="ProductEntity.cs" />

@@ -2,10 +2,12 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 namespace OnlineStoreRepository
 {
 
-    public class Store : DbContext
+    public class Store : IdentityDbContext<AppUser>
     {
         // Контекст настроен для использования строки подключения "Store" из файла конфигурации  
         // приложения (App.config или Web.config). По умолчанию эта строка подключения указывает на базу данных 
@@ -13,6 +15,10 @@ namespace OnlineStoreRepository
         // 
         // Если требуется выбрать другую базу данных или поставщик базы данных, измените строку подключения "Store" 
         // в файле конфигурации приложения.
+        public static Store Create()
+        {
+            return new Store();
+        }
 
         static Store()
         {

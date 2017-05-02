@@ -1,6 +1,9 @@
 ﻿using System.Data.Entity;
 using System.Runtime.Remoting.Contexts;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using OnlineStoreDomain;
+using OnlineStoreRepository.App;
 
 namespace OnlineStoreRepository
 {
@@ -23,10 +26,38 @@ namespace OnlineStoreRepository
             context.Products.Add(new ProductEntity { Id = 7, Name = "Rich Pomegranate", Price = 120, Volume = 1, TypeEntityId = 3 });
             context.Products.Add(new ProductEntity { Id = 8, Name = "Я Апельсин", Price = 135, Volume = 1, TypeEntityId = 3 });
 
-
+            PerformInitialSetup(context);
             base.Seed(context);
             context.SaveChanges();
 
+        }
+        public void PerformInitialSetup(Store context)
+        {
+            AppUserManager userMgr = new AppUserManager(new UserStore<AppUser>(context));
+            AppRoleManager roleMgr = new AppRoleManager(new RoleStore<AppRole>(context));
+
+            string roleName = "Administrators";
+            string userName = "Admin";
+            string password = "Admin456";
+            string email = "admin@mail.ru";
+
+            if (!roleMgr.RoleExists(roleName))
+            {
+                roleMgr.Create(new AppRole(roleName));
+            }
+
+            AppUser user = userMgr.FindByName(userName);
+            if (user == null)
+            {
+                userMgr.Create(new AppUser { UserName = userName, Email = email },
+                    password);
+                user = userMgr.FindByName(userName);
+            }
+
+            if (!userMgr.IsInRole(user.Id, roleName))
+            {
+                userMgr.AddToRole(user.Id, roleName);
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace OnlineStoreRepository.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201702220333056_url"; }
+            get { return "201705011812145_url"; }
         }
         
         string IMigrationMetadata.Source
