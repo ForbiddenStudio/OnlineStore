@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace OnlineStoreDomain
 {
-    public class ProductEntity 
+    public class ProductEntity : BaseEntity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         [Display(Name = "Название")]
        [Required(ErrorMessage = "Пожалуйста, введите название продукта")]
         public string Name { get; set; }

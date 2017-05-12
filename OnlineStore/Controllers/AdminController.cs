@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using OnlineStoreDomain;
 using OnlineStoreRepository;
+using OnlineStoreService;
 
 namespace OnlineStore.Controllers
 {
@@ -13,9 +14,11 @@ namespace OnlineStore.Controllers
     {
         // GET: Admin
         private IProductsRepository _repository;
+     
 
         public AdminController(IProductsRepository repository)
         {
+            
             _repository = repository;
         }
         
@@ -38,7 +41,7 @@ namespace OnlineStore.Controllers
         [HttpPost]
         public ActionResult Delete(int Id)
         {
-            ProductEntity deletedProduct = _repository.DeleteProduct(Id);
+            ProductEntity deletedProduct = _repository.Delete(Id);
             if (deletedProduct != null)
             {
                 TempData["message"] = string.Format("Продукт \"{0}\" был удален",

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="AppRole.cs" />
     <Compile Include="AppUser.cs" />
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="CartEntity.cs" />
     <Compile Include="ProductEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

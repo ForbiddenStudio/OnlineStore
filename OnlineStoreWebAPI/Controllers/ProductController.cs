@@ -12,7 +12,7 @@ namespace OnlineStoreWebAPI.Controllers
 {
     public class ProductController : ApiController
     {
-        private IProductsRepository _repository;// = ReservationRepository.Current;
+        private IProductsRepository _repository;
 
         public ProductController(IProductsRepository repository)
         {
@@ -32,8 +32,36 @@ namespace OnlineStoreWebAPI.Controllers
 
             });
         }
+     
+        public ProductModel Add(ProductEntity entity)
+        {
+           var product = _repository.Add(entity);
+            return  new ProductModel
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                TypeEntityId = product.TypeEntityId,
+                Volume = product.Volume
+            };
+        }
 
-        // GET /product/1
+        public void Delete(ProductEntity entity)
+        {
+            _repository.Delete(entity);
+        }
+
+        public void Update(ProductEntity entity)
+        {
+           _repository.Update(entity);
+        }
+
+        public void SaveProduct(ProductEntity product)
+        {
+            _repository.SaveProduct(product);
+        }
+
+        // GET /product/1     
         public ProductModel Get(int id)
         {
             var product = _repository.Get(id);
@@ -56,7 +84,7 @@ namespace OnlineStoreWebAPI.Controllers
         // DELETE /product/1
         public void Delete(int id)
         {
-            _repository.DeleteProduct(id);
-        }
+            _repository.Delete(id);
+        }       
     }
 }

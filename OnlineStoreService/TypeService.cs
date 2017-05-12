@@ -7,12 +7,12 @@ using OnlineStoreRepository;
 
 namespace OnlineStoreService
 {
-    public interface ITypeService
+    public interface ITypeService : IBaseService
     {
         string GetTypeName(int id);
     }
 
-    public class TypeService : ITypeService 
+    public class TypeService : BaseService, ITypeService 
     {
         private ITypesRepository _typesRepository;
 

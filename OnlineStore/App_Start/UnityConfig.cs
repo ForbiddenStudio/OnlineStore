@@ -18,9 +18,10 @@ namespace OnlineStore
             // register all your components with the container here
             // it is NOT necessary to register your controllers
             container.RegisterType<DbContext, Store>(new HierarchicalLifetimeManager());
-            container.RegisterType<IProductsRepository, ProductRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IProductsRepository, ProductsRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<ITypesRepository, TypeRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<ITypeService, TypeService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IProductService, ProductService>(new HierarchicalLifetimeManager());
             // e.g. container.RegisterType<ITestService, TestService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
